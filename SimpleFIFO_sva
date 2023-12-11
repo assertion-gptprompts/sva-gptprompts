@@ -1,0 +1,10 @@
+just example
+* function: 
+FIFO
+* sva description:  
+define top module and the two number add module ouput through fifo to a  two number minus module, where the input of minus module are two fifo connect to two add modules
+
+* Result: 
+
+*Env:
+passed in PaLM2(bito)
