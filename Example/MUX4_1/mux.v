@@ -1,5 +1,6 @@
 module MUX41
   (
+      input clk，rst,
       input		a,b,c,d,
       input [1:0]	sel,
       output reg	out
