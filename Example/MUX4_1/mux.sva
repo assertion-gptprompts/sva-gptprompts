@@ -1,0 +1,8 @@
+// Assert that the output is equal to the selected input
+assert property (@(sel, a, b, c, d) $rose(sel) |-> (out == (sel == 2'b00 ? a : (sel == 2'b01 ? b : (sel == 2'b10 ? c : d)))));
+
+// Assert that the output is stable when the inputs are stable
+assert property (@(a, b, c, d) $stable(out));
+
+// Assert that the output is updated when the select signal changes
+assert property (@(sel) $changed(sel) |-> $changed(out));
