@@ -1,0 +1,10 @@
+* function: 
+4:1的多路选择器
+*  description:  
+A 4:1 multiplexer module in Verilog HDL. 
+It takes four input signals (a, b, c, d) and a 2-bit select signal (sel) as inputs, 
+and outputs one of the input signals based on the select signal. 
+The output is stored in a register called "out".
+
+*Env:
+passed in PaLM2(bito)
