@@ -1,0 +1,14 @@
+* function: 
+An unsigned multiplication module used to calculate the product of two unsigned numbers.
+
+*  description:  
+The code performs the following steps:
+1. Defines a module  `unsigned_mul_1`  with parameters and input/output ports.
+2. Inside the  `always @(posedge clk)`  block, it uses a  `case`  statement to perform different operations based on the state.
+3. State  `s0` : Initializes the counter  `count`  and product  `P`  to 0, assigns the input  `y`  to the register  `y_reg` , left-shifts the input  `x`  by  `DATAWIDTH`  bits and assigns it to the register  `T` , and changes the state to  `s1` .
+4. State  `s1` : If the counter  `count`  is equal to  `DATAWIDTH` , changes the state to  `s2` . Otherwise, checks the lowest bit of  `y_reg`  to determine whether to add  `T`  to  `P` , then right-shifts  `y_reg`  by one bit, left-shifts  `T`  by one bit, increments the counter  `count` , and changes the state to  `s1` .
+5. State  `s2` : Assigns the product  `P`  to the output port  `result`  and changes the state back to  `s0` .
+6. The  `default`  statement is empty.
+
+*Env:
+passed in PaLM2(bito)
