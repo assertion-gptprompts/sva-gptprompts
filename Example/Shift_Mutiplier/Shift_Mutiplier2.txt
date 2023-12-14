@@ -15,4 +15,4 @@ During the calculation process, each bit of mul_b is used to select the correspo
 In summary, this code implements a pipelined shift-add multiplier for calculating the multiplication of two 8-bit numbers and producing a 16-bit multiplication result.
 
 *Env:
-passed in PaLM2(bito)
+generated in PaLM2(bito)
