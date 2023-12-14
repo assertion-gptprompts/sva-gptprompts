@@ -1,0 +1,15 @@
+* function: 
+8-bit Shift Register Shift register with enable
+*  description:  
+A shift register module. When the clock signal rises, the value of the output signal q is updated according to the state of the reset signal and the enable signal. 
+ 
+The steps of the code are as follows: 
+1. Define an input clock signal clk, reset signal rst, enable signal en, and an input signal d and an output signal q. 
+2. Define an 8-bit register q. 
+3. Use the always block to perform the following operations when the clock signal rises. 
+4. If the reset signal rst is true, set the value of the output signal q to 8 zeros. 
+5. Otherwise, if the enable signal en is true, update the value of the output signal q to the new value composed of the first 7 bits of q and the input signal d.
+
+
+*Env:
+generated in PaLM2(bito)
