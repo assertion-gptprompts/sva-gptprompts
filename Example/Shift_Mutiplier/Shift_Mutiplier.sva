@@ -1,0 +1,29 @@
+module unsigned_mul_1_assertions;
+    // Inputs
+    input clk;
+    input [DATAWIDTH-1:0] x, y;
+    // Outputs
+    output [DATAWIDTH*2-1:0] result;
+
+    // SVA Assertions
+    // Assert that the result is stable when the clock is stable
+    assert property @(posedge clk)
+        $stable(result);
+
+    // Assert that the result is updated correctly based on the inputs
+    assert property @(posedge clk)
+        (state == s2) |-> (result == (x * y));
+
+    // Assert that the result is reset to 0 when the state is s0
+    assert property @(posedge clk)
+        (state == s0) |-> (result == 0);
+
+    // Assert that the state transitions are correct
+    assert property @(posedge clk)
+        (state == s0) |-> (state == s1);
+    assert property @(posedge clk)
+        (state == s1) |-> (state == s2);
+    assert property @(posedge clk)
+        (state == s2) |-> (state == s0);
+
+endmodule
