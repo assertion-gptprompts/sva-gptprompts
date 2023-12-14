@@ -1,0 +1,23 @@
+module unsigned_mul_2_assertions;
+    // Inputs
+    input mul_a;
+    input mul_b;
+    input clk;
+    input rst_n;
+    // Outputs
+    output [MUL_RESULT-1:0] mul_out;
+
+    // SVA Assertions
+    // Assert that the output is stable when the clock is stable
+    assert property @(posedge clk)
+        $stable(mul_out);
+
+    // Assert that the output is reset to 0 when the reset is asserted
+    assert property @(posedge clk)
+        (rst_n == 0) |-> (mul_out == 16'b0);
+
+    // Assert that the output is updated correctly based on the inputs
+    assert property @(posedge clk)
+        (rst_n == 1) |-> (mul_out == (mul_a * mul_b));
+
+endmodule
