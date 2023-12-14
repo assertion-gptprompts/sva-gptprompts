@@ -7,4 +7,4 @@ and outputs one of the input signals based on the select signal.
 The output is stored in a register called "out".
 
 *Env:
-passed in PaLM2(bito)
+generated in PaLM2(bito)
