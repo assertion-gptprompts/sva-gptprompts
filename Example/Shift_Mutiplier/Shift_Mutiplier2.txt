@@ -1,0 +1,18 @@
+* function: 
+ A shift-add multiplier
+
+*  description:  
+The code is a pipelined implementation of a shift-add multiplier. It implements an 8-bit multiplier where the output result is 16 bits. 
+ 
+The code defines inputs mul_a and mul_b, as well as the clock signal clk and the reset signal rst_n. The output is the multiplication result mul_out. 
+ 
+The code uses a series of registers to store intermediate results. stored0 to stored7 store the multiplication results of each bit of mul_b with mul_a. add1 to add4 store the sum of stored0 to stored7. out1 and out2 store the sum of add1 and add2, and add3 and add4, respectively. 
+ 
+The always block in the code is triggered on the rising edge of the clock or when the reset signal is low. When the reset signal is low, all registers are cleared. When the reset signal is high, the multiplication calculation process is executed. 
+ 
+During the calculation process, each bit of mul_b is used to select the corresponding bit of mul_a, and the result is stored in the respective register. Then, add1 is computed by adding stored0 and stored1, add2 is computed by adding stored2 and stored3, add3 is computed by adding stored4 and stored5, and add4 is computed by adding stored6 and stored7. Next, out1 is computed by adding add1 and add2, and out2 is computed by adding add3 and add4. Finally, mul_out is computed by adding out1 and out2, resulting in the final multiplication result. 
+ 
+In summary, this code implements a pipelined shift-add multiplier for calculating the multiplication of two 8-bit numbers and producing a 16-bit multiplication result.
+
+*Env:
+passed in PaLM2(bito)
