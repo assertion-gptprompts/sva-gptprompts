@@ -11,4 +11,4 @@ The code performs the following steps:
 6. The  `default`  statement is empty.
 
 *Env:
-passed in PaLM2(bito)
+generated in PaLM2(bito)
