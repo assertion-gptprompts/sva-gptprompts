@@ -12,4 +12,4 @@ The steps of the code are as follows:
 
 
 *Env:
-passed in PaLM2(bito)
+generated in PaLM2(bito)
