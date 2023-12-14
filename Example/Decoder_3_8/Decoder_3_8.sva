@@ -1,0 +1,13 @@
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 0 && B == 0 && C == 0) |-> (OUT == 8'b0000_0001),
+    (A == 0 && B == 0 && C == 1) |-> (OUT == 8'b0000_0010),
+    (A == 0 && B == 1 && C == 0) |-> (OUT == 8'b0000_0100),
+    (A == 0 && B == 1 && C == 1) |-> (OUT == 8'b0000_1000),
+    (A == 1 && B == 0 && C == 0) |-> (OUT == 8'b0001_0000),
+    (A == 1 && B == 0 && C == 1) |-> (OUT == 8'b0010_0000),
+    (A == 1 && B == 1 && C == 0) |-> (OUT == 8'b0100_0000),
+    (A == 1 && B == 1 && C == 1) |-> (OUT == 8'b1000_0000)
+));
+
+// Assert that the output is stable when the inputs are stable
+assert property (@(A, B, C) $stable(OUT));
