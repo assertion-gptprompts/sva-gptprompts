@@ -1,0 +1,55 @@
+*Modified and integrated code:
+module MUX41
+  (
+      input clk,rst,
+      input		a,b,c,d,
+      input [1:0]	sel,
+      output reg	out
+  );
+  always@(posedge clk or posedge rst)begin
+      if(rst)begin
+          out <= 0;
+      end else begin
+          case (sel)
+              2'b00: out <= a;
+              2'b01: out <= b;
+              2'b10: out <= c;
+              2'b11: out <= d;
+              default: out <= a;
+          endcase
+      end
+  end
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 0 && B == 0 && C == 0) |-> (OUT == 8'b0000_0001)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 0 && B == 0 && C == 1) |-> (OUT == 8'b0000_0010)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 0 && B == 1 && C == 0) |-> (OUT == 8'b0000_0100)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 0 && B == 1 && C == 1) |-> (OUT == 8'b0000_1000)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 1 && B == 0 && C == 0) |-> (OUT == 8'b0001_0000)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 1 && B == 0 && C == 1) |-> (OUT == 8'b0010_0000)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 1 && B == 1 && C == 0) |-> (OUT == 8'b0100_0000)
+));
+
+assert property (@(A, B, C) $rose(A, B, C) |-> (
+    (A == 1 && B == 1 && C == 1) |-> (OUT == 8'b1000_0000)
+));
+  endmodule
+
+*passed on AveMC_20231129_Release_Centos7
